@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: dim_client
+    description: "Client dimension with anonymized PII (GDPR compliant)"
+    columns:
+      - name: client_id
+        tests:
+          - unique
+          - not_null
+
+      - name: email_hash
+        description: "Hashed email address (GDPR anonymized)"
+        tests:
+          - not_null

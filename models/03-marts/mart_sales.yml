@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: mart_sales
+    description: "Sales mart for reporting and dashboards"
+    columns:
+      - name: order_product_id
+        tests:
+          - not_null
+
+      - name: order_id
+        tests:
+          - not_null
+
+      - name: sales_amount
+        description: "Line-level sales amount (quantity × unit price)"
+        tests:
+          - not_null
+
+      - name: cal_year
+        tests:
+          - not_null

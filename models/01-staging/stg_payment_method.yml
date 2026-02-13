@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: stg_payment_method
+    columns:
+      - name: payment_id
+        tests: [unique, not_null]
+      - name: payment_method
+        tests: [not_null]

@@ -1,0 +1,24 @@
+{{
+    config(
+        alias='dim_client_anon',
+        materialized='table',
+        tags=['marts', 'gdpr']
+    )
+}}
+
+SELECT
+    client_sk,
+    client_id,
+
+    -- anonymized PII
+    {{ data_anonymization('email') }} AS email_hash,
+    {{ data_anonymization('phone_number') }} AS phone_hash,
+    {{ data_anonymization('address') }} AS address_hash,
+	{{ data_anonymization('client_name') }} AS name_hash,
+
+    -- non-sensitive attributes kept for reporting
+    
+    type_id,
+    status_id,
+    registration_date
+FROM PREP.STAR_SCHEMA.DIM_CLIENT

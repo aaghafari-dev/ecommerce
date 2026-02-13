@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: dim_time
+    columns:
+      - name: date_id
+        tests: [unique, not_null]
+      - name: calendar_date
+        tests: [not_null]

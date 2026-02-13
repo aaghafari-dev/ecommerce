@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_client
+    description: "Staging table for clients (OLTP → OLAP)"
+    columns:
+      - name: client_id
+        tests: [unique, not_null]
+      - name: email
+        tests: [not_null]
+      - name: type_id
+        tests: [not_null]
+      - name: status_id
+        tests: [not_null]

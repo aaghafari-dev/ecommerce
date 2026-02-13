@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: fct_orders
+    columns:
+      - name: order_product_id
+        tests: [unique, not_null]
+
+      - name: client_id
+        tests:
+          - relationships:
+              to: ref('dim_client')
+              field: client_id
+
+      - name: product_id
+        tests:
+          - relationships:
+              to: ref('dim_product')
+              field: product_id
+
+      - name: date_id
+        tests:
+          - relationships:
+              to: ref('dim_time')
+              field: date_id

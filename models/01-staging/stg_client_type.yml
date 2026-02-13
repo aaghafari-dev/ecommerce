@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: stg_client_type
+    columns:
+      - name: client_type_id
+        tests: [unique, not_null]
+      - name: type_name
+        tests: [not_null]
